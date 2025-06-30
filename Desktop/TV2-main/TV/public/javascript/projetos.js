@@ -1,4 +1,4 @@
-const API_URL = '/api/projetos';
+const API_URL = 'https://tv-3-e2uh.onrender.com/api/projetos';
 
 function criarCardProjeto(p) {
     // Usa imagem do projeto se houver, senão imagem padrão

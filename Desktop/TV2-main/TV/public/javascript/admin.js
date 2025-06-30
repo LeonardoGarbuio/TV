@@ -1,4 +1,4 @@
-const API_URL = '/api/projetos';
+const API_URL = 'https://tv-3-e2uh.onrender.com/api/projetos';
 const ADMIN_PASSWORD = 'admin123';
 
 const app = document.getElementById('admin-app');
@@ -81,7 +81,7 @@ async function loginAdmin() {
     const erro = document.getElementById('login-erro');
     erro.textContent = '';
     try {
-        const res = await fetch('/api/admin-login', {
+        const res = await fetch('https://tv-3-e2uh.onrender.com/api/admin-login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: user, password: pass })
@@ -156,13 +156,13 @@ async function salvarProjeto(e) {
         const formData = new FormData();
         for (const key in data) formData.append(key, data[key]);
         formData.append('imagemFile', imagemFile);
-        res = await fetch(id ? `/api/projetos/${id}` : '/api/projetos', {
+        res = await fetch(id ? `https://tv-3-e2uh.onrender.com/api/projetos/${id}` : 'https://tv-3-e2uh.onrender.com/api/projetos', {
             method: id ? 'PUT' : 'POST',
             headers: { 'Authorization': 'Bearer ' + adminToken },
             body: formData
         });
     } else {
-        res = await fetch(id ? `/api/projetos/${id}` : '/api/projetos', {
+        res = await fetch(id ? `https://tv-3-e2uh.onrender.com/api/projetos/${id}` : 'https://tv-3-e2uh.onrender.com/api/projetos', {
             method: id ? 'PUT' : 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + adminToken },
             body: JSON.stringify(data)
@@ -178,7 +178,7 @@ async function salvarProjeto(e) {
 }
 
 async function editarProjeto(id) {
-    const res = await fetch(`/api/projetos`);
+    const res = await fetch(`https://tv-3-e2uh.onrender.com/api/projetos`);
     const projetos = await res.json();
     const p = projetos.find(x => x.id === id);
     if (p) {
@@ -195,7 +195,7 @@ async function editarProjeto(id) {
 
 async function excluirProjeto(id) {
     if (confirm('Tem certeza que deseja excluir este projeto?')) {
-        const res = await fetch(`${API_URL}/${id}`, { 
+        const res = await fetch(`https://tv-3-e2uh.onrender.com/api/projetos/${id}`, { 
             method: 'DELETE',
             headers: { 'Authorization': 'Bearer ' + adminToken }
         });
@@ -211,7 +211,7 @@ async function carregarAdmins() {
     const lista = document.getElementById('lista-admins');
     lista.innerHTML = 'Carregando...';
     try {
-        const res = await fetch('/api/admins', {
+        const res = await fetch('https://tv-3-e2uh.onrender.com/api/admins', {
             headers: { 'Authorization': 'Bearer ' + adminToken }
         });
         const admins = await res.json();
@@ -233,7 +233,7 @@ async function criarNovoAdmin(e) {
     const user = document.getElementById('novo-admin-user').value;
     const pass = document.getElementById('novo-admin-pass').value;
     try {
-        const res = await fetch('/api/admins', {
+        const res = await fetch('https://tv-3-e2uh.onrender.com/api/admins', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + adminToken },
             body: JSON.stringify({ username: user, password: pass })
@@ -253,7 +253,7 @@ async function criarNovoAdmin(e) {
 async function excluirAdmin(id) {
     if (!confirm('Tem certeza que deseja excluir este admin?')) return;
     try {
-        const res = await fetch(`/api/admins/${id}`, {
+        const res = await fetch(`https://tv-3-e2uh.onrender.com/api/admins/${id}`, {
             method: 'DELETE',
             headers: { 'Authorization': 'Bearer ' + adminToken }
         });
