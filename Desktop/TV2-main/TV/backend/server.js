@@ -38,7 +38,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Inicializa o banco de dados SQLite
+console.log('Iniciando inicialização do banco...');
 let db;
 (async () => {
   let dbPath = path.join(__dirname, '../database/projetos.db');
@@ -47,13 +47,15 @@ let db;
       filename: dbPath,
       driver: sqlite3.Database
     });
+    console.log('Banco aberto em:', dbPath);
   } catch (e) {
-    // Se der erro de permissão, tenta criar em /tmp (Railway, Vercel, etc)
+    console.log('Erro ao abrir banco em', dbPath, '->', e.message);
     dbPath = '/tmp/projetos.db';
     db = await open({
       filename: dbPath,
       driver: sqlite3.Database
     });
+    console.log('Banco aberto em:', dbPath);
   }
   await db.run(`CREATE TABLE IF NOT EXISTS projetos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -91,6 +93,7 @@ let db;
     const hash = await bcrypt.default.hash('202330', 10);
     await db.run('INSERT INTO admins (username, password) VALUES (?, ?)', ['leonardo', hash]);
   }
+  console.log('Finalizou inicialização do banco!');
 })();
 
 // Login de admin
@@ -200,6 +203,7 @@ app.get('/', (req, res) => {
   res.send('API online!');
 });
 
+console.log('Pronto para escutar requisições!');
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${PORT}`);
   if (process.env.RAILWAY_STATIC_URL) {
