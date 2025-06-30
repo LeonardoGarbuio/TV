@@ -14,6 +14,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+console.log('PORTA USADA:', PORT);
 const SECRET_TOKEN = 'SECRETTOKEN123'; // Troque por um token forte
 
 app.use(cors());
@@ -195,7 +196,7 @@ app.delete('/api/admins/:id', checkAdminAuth, async (req, res) => {
   res.json({ ok: true });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${PORT}`);
   if (process.env.RAILWAY_STATIC_URL) {
     console.log(`Acesse em: https://${process.env.RAILWAY_STATIC_URL}`);
