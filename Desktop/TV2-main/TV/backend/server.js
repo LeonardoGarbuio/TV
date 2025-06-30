@@ -41,7 +41,8 @@ const upload = multer({ storage });
 console.log('Iniciando inicialização do banco...');
 let db;
 (async () => {
-  let dbPath = path.join(__dirname, '../database/projetos.db');
+  // Se estiver no Railway, sempre usar /tmp/projetos.db
+  let dbPath = process.env.RAILWAY_ENVIRONMENT_NAME ? '/tmp/projetos.db' : path.join(__dirname, '../database/projetos.db');
   try {
     db = await open({
       filename: dbPath,
@@ -50,12 +51,7 @@ let db;
     console.log('Banco aberto em:', dbPath);
   } catch (e) {
     console.log('Erro ao abrir banco em', dbPath, '->', e.message);
-    dbPath = '/tmp/projetos.db';
-    db = await open({
-      filename: dbPath,
-      driver: sqlite3.Database
-    });
-    console.log('Banco aberto em:', dbPath);
+    process.exit(1);
   }
   await db.run(`CREATE TABLE IF NOT EXISTS projetos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
