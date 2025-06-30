@@ -160,6 +160,7 @@ app.delete('/api/projetos/:id', checkAdminAuth, async (req, res) => {
 
 // Listar projetos (público)
 app.get('/api/projetos', async (req, res) => {
+  console.log('[DEBUG] GET /api/projetos chamado');
   const projetos = await db.all('SELECT * FROM projetos');
   res.json(projetos);
 });
