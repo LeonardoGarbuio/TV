@@ -40,10 +40,20 @@ const upload = multer({ storage });
 // Inicializa o banco de dados SQLite
 let db;
 (async () => {
-  db = await open({
-    filename: path.join(__dirname, '../database/projetos.db'),
-    driver: sqlite3.Database
-  });
+  let dbPath = path.join(__dirname, '../database/projetos.db');
+  try {
+    db = await open({
+      filename: dbPath,
+      driver: sqlite3.Database
+    });
+  } catch (e) {
+    // Se der erro de permissão, tenta criar em /tmp (Railway, Vercel, etc)
+    dbPath = '/tmp/projetos.db';
+    db = await open({
+      filename: dbPath,
+      driver: sqlite3.Database
+    });
+  }
   await db.run(`CREATE TABLE IF NOT EXISTS projetos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     status TEXT,
