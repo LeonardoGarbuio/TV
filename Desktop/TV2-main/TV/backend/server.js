@@ -196,6 +196,10 @@ app.delete('/api/admins/:id', checkAdminAuth, async (req, res) => {
   res.json({ ok: true });
 });
 
+app.get('/', (req, res) => {
+  res.send('API online!');
+});
+
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${PORT}`);
   if (process.env.RAILWAY_STATIC_URL) {
