@@ -39,16 +39,27 @@ const SECRET_TOKEN = process.env.JWT_SECRET || 'fallback-dev-token-inseguro';
 const whitelist = process.env.ALLOWED_ORIGIN ? process.env.ALLOWED_ORIGIN.split(',') : []; 
 app.use(cors({
   origin: function (origin, callback) {
-    // Permite: local (dev), domínios na whitelist, ou qualquer subdomínio .github.io
     if (!origin || whitelist.includes(origin) || origin.endsWith('.github.io')) {
       callback(null, true);
     } else {
       console.warn(`[BLOQUEIO CORS]: Tentativa de acesso vinda de origin não autorizada: ${origin}`);
-      callback(null, false); // Retorna falso em vez de erro para o middleware tratar elegantemente
+      callback(null, false);
     }
   },
   credentials: true
 }));
+
+// Configuração do Vercel Postgres (Obrigatório: Conectar Storage no Dashboard da Vercel)
+if (!process.env.POSTGRES_URL) {
+  console.error('❌ ERRO CRÍTICO: POSTGRES_URL não encontrada! Certifique-se de conectar o Postgres Storage ao projeto na Vercel.');
+}
+
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL,
+  ssl: {
+    rejectUnauthorized: false // Exigido pela infraestrutura da Vercel
+  }
+});
 
 app.use(cookieParser());
 
