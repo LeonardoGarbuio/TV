@@ -42,11 +42,12 @@ console.log('PORTA USADA:', PORT);
 // Token Secreto puxado da env (cai fallback só em dev local provisório pra n quebrar)
 const SECRET_TOKEN = process.env.JWT_SECRET || 'fallback-dev-token-inseguro'; 
 
-// CORS Extremo com suporte a Credenciais (Mandatório para GitHub Pages + Vercel)
+// CORS Full-Stack (Otimizado para Vercel + GitHub de Back-up)
 const whitelist = process.env.ALLOWED_ORIGIN ? process.env.ALLOWED_ORIGIN.split(',') : []; 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || whitelist.includes(origin) || origin.endsWith('.github.io')) {
+    // Permite: Mesmo-Origem (Vercel), domínios na whitelist, ou qualquer subdomínio .github.io
+    if (!origin || whitelist.includes(origin) || origin.endsWith('.github.io') || origin.includes('vercel.app')) {
       callback(null, true);
     } else {
       console.warn(`[BLOQUEIO CORS]: Tentativa de acesso vinda de origin não autorizada: ${origin}`);

@@ -1,5 +1,5 @@
-// CONFIGURAÇÃO VITAL: Insira aqui a URL gerada pela Vercel após o deploy do seu backend
-const API_BASE_URL = 'https://tv-sable-sigma.vercel.app'; 
+// CONFIGURAÇÃO FULL-STACK: Agora que o Front e o Back estão no mesmo lugar, usamos URLs relativas.
+const API_BASE_URL = ''; 
 
 const API_URL = API_BASE_URL + '/api/projetos';
 const app = document.getElementById('admin-app');

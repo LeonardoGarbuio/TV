@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     projectsGrid.innerHTML = '<p style="color:var(--c-text-muted); padding:3rem; text-align:center; grid-column:1/-1;">Requisitando banco de dados blindado...</p>';
 
-    // CONFIGURAÇÃO VITAL: Insira aqui a URL gerada pela Vercel após o deploy do seu backend
-    const API_BASE_URL = 'https://tv-sable-sigma.vercel.app'; 
+    // CONFIGURAÇÃO FULL-STACK: Agora que o Front e o Back estão no mesmo lugar, usamos URLs relativas.
+    const API_BASE_URL = ''; 
     
     try {
         const res = await fetch(API_BASE_URL + '/api/projetos');
