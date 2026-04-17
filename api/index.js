@@ -182,15 +182,19 @@ console.log('Iniciando conexão com Vercel Postgres...');
       `);
     }
 
-    const { rows: adminRows } = await pool.query('SELECT COUNT(*) as total FROM admins');
-    if (parseInt(adminRows[0].total) === 0) {
-      const defaultUser = process.env.DEFAULT_ADMIN_USER || 'leonardo';
-      const defaultPass = process.env.DEFAULT_ADMIN_PASS || 'admin123';
-      
-      const hash = await bcrypt.hash(defaultPass, 10);
-      await pool.query('INSERT INTO admins (username, password) VALUES ($1, $2)', [defaultUser, hash]);
-      console.log(`[SEGURANÇA] Conta de Emergência criada: '${defaultUser}' (Senha padrão aplicada).`);
-    }
+    // AUTO-RECUPERAÇÃO AGRESSIVA: Garante que o usuário 'leonardo' sempre exista e esteja destravado
+    const defaultUser = process.env.DEFAULT_ADMIN_USER || 'leonardo';
+    const defaultPass = process.env.DEFAULT_ADMIN_PASS || 'admin123';
+    const hash = await bcrypt.hash(defaultPass, 10);
+    
+    await pool.query(`
+      INSERT INTO admins (username, password, failed_attempts, locked_until) 
+      VALUES ($1, $2, 0, 0)
+      ON CONFLICT (username) 
+      DO UPDATE SET password = $2, failed_attempts = 0, locked_until = 0
+    `, [defaultUser, hash]);
+    
+    console.log(`[SISTEMA] Acesso garantido para '${defaultUser}'. Travas removidas.`);
     console.log('Finalizou inicialização do banco Postgres!');
   } catch (e) {
     console.error('Erro ao conectar ou inicializar banco Postgres:', e);
