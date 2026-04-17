@@ -16,9 +16,6 @@ import hpp from 'hpp';
 import xss from 'xss';
 import cookieParser from 'cookie-parser';
 
-// Sharp será carregado sob demanda (lazy-load) para evitar crash no boot
-let sharp;
-
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -313,24 +310,15 @@ app.post('/api/projetos', checkAdminAuth, upload.single('imagemFile'), async (re
     try {
       const filename = `projetos/${Date.now()}_${Math.round(Math.random() * 1E9)}.webp`;
       
-      // Carregamento dinâmico do Sharp para evitar crash na inicialização
-      if (!sharp) sharp = (await import('sharp')).default;
-
-      // Processar com sharp em memória
-      const webpBuffer = await sharp(req.file.buffer)
-        .resize(1920, 1080, { fit: 'inside', withoutEnlargement: true })
-        .webp({ quality: 80 })
-        .toBuffer();
-
-      // Enviar para Vercel Blob
-      const blob = await put(filename, webpBuffer, {
+      // Upload direto para Vercel Blob (Sem Sharp para garantir o boot)
+      const blob = await put(filename, req.file.buffer, {
         access: 'public',
-        contentType: 'image/webp'
+        contentType: req.file.mimetype
       });
         
-      imagem = blob.url; // Agora guardamos a URL completa da nuvem
+      imagem = blob.url;
     } catch (err) {
-      console.error('Erro de compressão / Upload Blob:', err);
+      console.error('Erro de Upload Blob:', err);
       return res.status(400).json({ error: 'Falha no processamento da imagem.' });
     }
   }
@@ -359,23 +347,14 @@ app.put('/api/projetos/:id', checkAdminAuth, upload.single('imagemFile'), async 
   
   if (req.file) {
     try {
-      // Carregamento dinâmico do Sharp
-      if (!sharp) sharp = (await import('sharp')).default;
-
       const filename = `projetos/${Date.now()}_${Math.round(Math.random() * 1E9)}.webp`;
-      const webpBuffer = await sharp(req.file.buffer)
-        .resize(1920, 1080, { fit: 'inside', withoutEnlargement: true })
-        .webp({ quality: 80 })
-        .toBuffer();
-
-      const blob = await put(filename, webpBuffer, {
+      const blob = await put(filename, req.file.buffer, {
         access: 'public',
-        contentType: 'image/webp'
+        contentType: req.file.mimetype
       });
-        
       imagem = blob.url;
     } catch (err) {
-      console.error('Erro de compressão / Upload Blob PUT:', err);
+      console.error('Erro de Upload Blob PUT:', err);
       return res.status(400).json({ error: 'Falha no processamento da imagem.' });
     }
   } else {
