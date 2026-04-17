@@ -149,9 +149,6 @@ function logForense(req, acao, detalhe) {
 }
 
 console.log('Iniciando conexão com Vercel Postgres...');
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL,
-});
 
 (async () => {
   try {
