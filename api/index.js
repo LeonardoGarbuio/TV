@@ -336,11 +336,16 @@ app.post('/api/projetos', checkAdminAuth, upload.single('imagemFile'), async (re
     }
   }
 
-  const result = await pool.query(
-    'INSERT INTO projetos (categoria, status, nome, cidade, detalhes, apartamentos, metragem, imagem) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id',
-    [categoria, status, nome, cidade, detalhes, apartamentos, metragem, imagem]
-  );
-  res.json({ id: result.rows[0].id });
+  try {
+    const result = await pool.query(
+      'INSERT INTO projetos (categoria, status, nome, cidade, detalhes, apartamentos, metragem, imagem) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id',
+      [categoria, status, nome, cidade, detalhes, apartamentos, metragem, imagem]
+    );
+    res.json({ id: result.rows[0].id });
+  } catch (err) {
+    console.error('Erro ao inserir projeto:', err);
+    res.status(500).json({ error: 'Erro no Banco de Dados: ' + err.message });
+  }
 });
 
 app.put('/api/projetos/:id', checkAdminAuth, upload.single('imagemFile'), async (req, res) => {
@@ -375,11 +380,16 @@ app.put('/api/projetos/:id', checkAdminAuth, upload.single('imagemFile'), async 
     imagem = rows[0] ? rows[0].imagem : '';
   }
   
-  await pool.query(
-    'UPDATE projetos SET categoria=$1, status=$2, nome=$3, cidade=$4, detalhes=$5, apartamentos=$6, metragem=$7, imagem=$8 WHERE id=$9',
-    [categoria, status, nome, cidade, detalhes, apartamentos, metragem, imagem, id]
-  );
-  res.json({ ok: true });
+  try {
+    await pool.query(
+      'UPDATE projetos SET categoria=$1, status=$2, nome=$3, cidade=$4, detalhes=$5, apartamentos=$6, metragem=$7, imagem=$8 WHERE id=$9',
+      [categoria, status, nome, cidade, detalhes, apartamentos, metragem, imagem, id]
+    );
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('Erro ao atualizar projeto:', err);
+    res.status(500).json({ error: 'Erro na atualização: ' + err.message });
+  }
 });
 
 app.delete('/api/projetos/:id', checkAdminAuth, async (req, res) => {

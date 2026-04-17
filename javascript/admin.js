@@ -299,7 +299,8 @@ async function salvarProjeto(e) {
             limparForm();
             carregarProjetos();
         } else {
-            alert('Operação Negada pela Nuvem.');
+            const data = await res.json().catch(() => ({}));
+            alert('Operação Negada pela Nuvem: ' + (data.error || 'Erro desconhecido.'));
         }
     } catch (e) {
         alert('Conexão cortada ativamente (Drop).');
