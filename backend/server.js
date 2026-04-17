@@ -12,15 +12,26 @@ import jwt from 'jsonwebtoken';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
-import sharp from 'sharp';
-import xss from 'xss';
 import hpp from 'hpp';
+import xss from 'xss';
 import cookieParser from 'cookie-parser';
+
+// Sharp será carregado sob demanda (lazy-load) para evitar crash no boot
+let sharp;
 
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Captura de erros fatais para o Log da Vercel
+process.on('uncaughtException', (err) => {
+  console.error('💥 COLISÃO FATAL NO BOOT:', err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('💥 PROMESSA REJEITADA SEM TRATAMENTO:', reason);
+});
 
 const app = express();
 
@@ -302,6 +313,9 @@ app.post('/api/projetos', checkAdminAuth, upload.single('imagemFile'), async (re
     try {
       const filename = `projetos/${Date.now()}_${Math.round(Math.random() * 1E9)}.webp`;
       
+      // Carregamento dinâmico do Sharp para evitar crash na inicialização
+      if (!sharp) sharp = (await import('sharp')).default;
+
       // Processar com sharp em memória
       const webpBuffer = await sharp(req.file.buffer)
         .resize(1920, 1080, { fit: 'inside', withoutEnlargement: true })
@@ -345,6 +359,9 @@ app.put('/api/projetos/:id', checkAdminAuth, upload.single('imagemFile'), async 
   
   if (req.file) {
     try {
+      // Carregamento dinâmico do Sharp
+      if (!sharp) sharp = (await import('sharp')).default;
+
       const filename = `projetos/${Date.now()}_${Math.round(Math.random() * 1E9)}.webp`;
       const webpBuffer = await sharp(req.file.buffer)
         .resize(1920, 1080, { fit: 'inside', withoutEnlargement: true })
