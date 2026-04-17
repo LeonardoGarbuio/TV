@@ -411,6 +411,50 @@ app.delete('/api/admins/:id', checkAdminAuth, async (req, res) => {
   res.json({ ok: true });
 });
 
+app.get('/api/setup-database-secure', async (req, res) => {
+  try {
+    // Criar Tabela de Projetos
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS projetos (
+        id SERIAL PRIMARY KEY,
+        categoria VARCHAR(100),
+        status VARCHAR(100),
+        nome VARCHAR(255),
+        cidade VARCHAR(255),
+        detalhes TEXT,
+        apartamentos VARCHAR(100),
+        metragem VARCHAR(100),
+        imagem TEXT
+      )
+    `);
+
+    // Criar Tabela de Admins
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS admins (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(100) UNIQUE,
+        password TEXT
+      )
+    `);
+
+    // Inserir Admin Padrão (Se não existir)
+    const adminUser = process.env.DEFAULT_ADMIN_USER || 'admin';
+    const adminPass = process.env.DEFAULT_ADMIN_PASS || 'luniel2024';
+    const hash = await bcrypt.hash(adminPass, 10);
+    
+    await pool.query(`
+      INSERT INTO admins (username, password) 
+      VALUES ($1, $2) 
+      ON CONFLICT (username) DO NOTHING
+    `, [adminUser, hash]);
+
+    res.send('<h1>🏆 Banco de Dados Inicializado com Sucesso!</h1><p>As tabelas foram criadas e o acesso administrativo foi liberado.</p>');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro ao inicializar banco: ' + err.message);
+  }
+});
+
 app.get('/', (req, res) => {
   res.send('API Luniel Pro online na Vercel!');
 });
