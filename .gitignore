@@ -1,0 +1,33 @@
+# Ignorar dependências do Node.js
+node_modules/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos temporários e caches
+*.tmp
+*.cache
+
+# Ignorar variáveis de ambiente
+.env
+
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar pastas de IDEs/editors
+.vscode/
+.idea/
+
+# Ignorar arquivos de build (caso use futuramente)
+dist/
+build/
+
+# Ignorar arquivos de upload temporários
+uploads_tmp/
+
+# Ignorar arquivos de backup
+*~
+
+# Ignorar arquivos do sistema Windows
+Desktop.ini 

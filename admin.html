@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração | Luniel Incorporadora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos base Admin - Sobrescritos para ambiente dedicado */
+        body {
+            background-color: var(--c-bg);
+            background-image: radial-gradient(circle at 50% 0%, rgba(58, 107, 79, 0.15) 0%, transparent 70%);
+            min-height: 100vh;
+            color: var(--c-text-primary);
+            font-family: var(--font-body);
+        }
+        
+        #admin-app {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--sp-8);
+        }
+
+        /* ----- LOGIN COMPONENT ----- */
+        .admin-login {
+            background: var(--c-bg-card);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-xl);
+            padding: var(--sp-12);
+            width: 100%;
+            max-width: 440px;
+            box-shadow: var(--shadow-lg), inset 0 1px 1px rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            text-align: center;
+            animation: fadeSlideUp 0.6s var(--ease-out-expo) forwards;
+        }
+
+        .admin-login-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--c-bg-elevated);
+            border: 1px solid var(--c-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--sp-6);
+            color: var(--c-accent);
+            box-shadow: 0 0 30px rgba(212, 169, 94, 0.1);
+        }
+        
+        .admin-login h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: var(--sp-8);
+            color: var(--c-text-primary);
+        }
+        .admin-login h2 span { color: var(--c-accent); font-style: italic; }
+
+        .form-group {
+            margin-bottom: var(--sp-4);
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--sp-2);
+            font-size: 0.8rem;
+            color: var(--c-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .admin-input {
+            width: 100%;
+            background: var(--c-bg-elevated);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-md);
+            padding: var(--sp-3) var(--sp-4);
+            color: var(--c-text-primary);
+            font-family: var(--font-body);
+            transition: all var(--t-fast);
+        }
+        .admin-input:focus {
+            border-color: var(--c-accent);
+            box-shadow: 0 0 0 2px rgba(212, 169, 94, 0.2);
+            outline: none;
+        }
+
+        .btn-admin {
+            width: 100%;
+            background: linear-gradient(135deg, var(--c-accent-dark), var(--c-accent));
+            color: var(--c-bg);
+            border: none;
+            padding: var(--sp-3);
+            border-radius: var(--r-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--t-normal) var(--ease-out-expo);
+            margin-top: var(--sp-4);
+        }
+        .btn-admin:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow-accent);
+            background: linear-gradient(135deg, var(--c-accent), var(--c-accent-light));
+        }
+
+        /* ----- DASHBOARD ADMIN ----- */
+        .admin-dashboard {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            animation: fadeSlideUp 0.6s var(--ease-out-expo) forwards;
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-8);
+        }
+
+        .admin-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--sp-6) var(--sp-8);
+            background: var(--c-bg-card);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .admin-header h1 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        .admin-header h1 span { color: var(--c-accent); font-style: italic; }
+        
+        .header-actions { display: flex; gap: var(--sp-4); align-items: center; }
+
+        .btn-logout {
+            background: transparent;
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: var(--sp-2) var(--sp-6);
+            border-radius: var(--r-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all var(--t-fast);
+        }
+        .btn-logout:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--sp-8);
+        }
+
+        .admin-panel {
+            background: var(--c-bg-card);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-xl);
+            padding: var(--sp-8);
+            box-shadow: var(--shadow-md);
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--c-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--sp-6);
+            display: flex;
+            align-items: center;
+            gap: var(--sp-3);
+        }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+        .full-width { grid-column: 1 / -1; }
+
+        /* Lista de Projetos */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-4);
+        }
+        .project-card {
+            background: var(--c-bg-elevated);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-md);
+            padding: var(--sp-4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--t-fast);
+        }
+        .project-card:hover {
+            border-color: var(--c-accent);
+            transform: translateX(4px);
+        }
+        .project-info h4 {
+            font-size: 1rem;
+            margin-bottom: 2px;
+            color: var(--c-text-primary);
+        }
+        .project-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--c-text-secondary);
+        }
+        
+        .action-btns {
+            display: flex; gap: var(--sp-2);
+        }
+        .btn-icon {
+            background: var(--c-surface);
+            border: 1px solid var(--c-border);
+            color: var(--c-text-primary);
+            width: 36px; height: 36px;
+            border-radius: var(--r-md);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-icon:hover { background: var(--c-accent); color: var(--c-bg); border-color: var(--c-accent); }
+        .btn-icon.delete:hover { background: #ef4444; color: #fff; border-color: #ef4444; }
+
+        @keyframes fadeSlideUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            .admin-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="admin-app">
+        <!-- Renderizado dinamicamente via JS -->
+    </div>
+    <script src="javascript/admin.js"></script>
+</body>
+</html> 

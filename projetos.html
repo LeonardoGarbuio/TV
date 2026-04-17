@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça todos os empreendimentos da Luniel Incorporadora. Residenciais, comerciais e multiuso com qualidade premium.">
+    <meta name="keywords" content="empreendimentos, projetos, residencial, comercial, Luniel">
+    <meta name="author" content="Luniel Incorporadora">
+    <title>Projetos | Luniel Incorporadora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="header" class="glass-header scrolled">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><a href="index.html"><span class="logo-text">LUNIEL</span><span class="logo-dot">.</span></a></div>
+                <nav id="main-nav" aria-label="Navegação principal"><ul><li><a href="index.html" class="nav-link">Home</a></li><li><a href="sobre.html" class="nav-link">Sobre</a></li><li><a href="projetos.html" class="nav-link active">Projetos</a></li><li><a href="servicos.html" class="nav-link">Serviços</a></li></ul></nav>
+                <div class="header-actions">
+                    <a href="contato.html" class="contact-button"><span>Fale Conosco</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
+                    <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false" id="mobileMenuBtn"><span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-overlay" id="mobileOverlay"><nav class="mobile-nav"><a href="index.html" class="mobile-nav-link">Home</a><a href="sobre.html" class="mobile-nav-link">Sobre</a><a href="projetos.html" class="mobile-nav-link active">Projetos</a><a href="servicos.html" class="mobile-nav-link">Serviços</a><a href="contato.html" class="mobile-nav-link cta">Fale Conosco</a></nav></div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero-cinematic" style="min-height: 60vh;">
+            <div class="hero-bg-layer">
+                <div class="hero-gradient-overlay"></div>
+                <div class="hero-noise-overlay"></div>
+                <div class="hero-parallax-img" style="background-image: url('imagens/f1.avif')"></div>
+            </div>
+            <div class="container hero-container">
+                <div class="hero-content-cinematic" style="padding: 10rem 0 5rem; max-width: 800px; text-align: center; margin: 0 auto;">
+                    <div class="hero-badge-line" style="animation-delay: 0.3s; justify-content: center;">
+                        <span class="hero-line"></span><span class="hero-label">PORTFÓLIO COMPLETO</span><span class="hero-line"></span>
+                    </div>
+                    <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4.5rem); text-align: center;">
+                        <span class="title-line" style="animation-delay: 0.5s; display: inline;">Viva o </span>
+                        <span class="title-line accent" style="animation-delay: 0.65s; display: inline;">Extraordinário</span>
+                    </h1>
+                    <p class="hero-description" style="animation-delay: 0.9s; text-align: center; margin-left: auto; margin-right: auto;">
+                        Empreendimentos Luniel: luxo, design e exclusividade em cada detalhe.
+                    </p>
+                    <div class="hero-stats-row" style="animation-delay: 1.1s; justify-content: center;">
+                        <div class="hero-stat" style="align-items: center;"><span class="hero-stat-number" data-count="25">0</span><span class="hero-stat-label">Projetos Entregues</span></div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat" style="align-items: center;"><span class="hero-stat-number" data-count="6">0</span><span class="hero-stat-label">Estados</span></div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat" style="align-items: center;"><span class="hero-stat-number" data-count="3200">0</span><span class="hero-stat-label">Clientes Satisfeitos</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section style="padding: 2rem 0; background: var(--c-bg); border-bottom: 1px solid var(--c-border);">
+            <div class="container">
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <button class="filtro-btn active" data-filter="todos">Todos</button>
+                    <button class="filtro-btn" data-filter="residencial">Residencial</button>
+                    <button class="filtro-btn" data-filter="comercial">Comercial</button>
+                    <button class="filtro-btn" data-filter="multiuso">Multiuso</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section style="padding: 5rem 0; background: var(--c-bg-elevated);" id="projetos-list">
+            <div class="container">
+                <div class="projects-carousel" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));" id="projectsGrid">
+                    <!-- Projetos inseridos dinamicamente pela API via api-projetos.js (Zero-Trust) -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section-v2">
+            <div class="cta-bg-elements"><div class="cta-glow-1"></div><div class="cta-glow-2"></div></div>
+            <div class="container">
+                <div class="cta-content-v2">
+                    <h2>Pronto para investir no seu <span class="heading-accent">futuro</span>?</h2>
+                    <p>Descubra as oportunidades disponíveis nos empreendimentos Luniel.</p>
+                    <div class="cta-btn-group">
+                        <a href="contato.html" class="btn-cta-gold"><span>Falar com Consultor</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-v2">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand"><div class="footer-logo">LUNIEL<span>.</span></div><p>Referência no mercado imobiliário brasileiro.</p><div class="footer-social"><a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg></a><a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div></div>
+                <div class="footer-links-group"><div class="footer-col"><h4>Navegação</h4><ul><li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="contato.html">Contato</a></li></ul></div><div class="footer-col"><h4>Empreendimentos</h4><ul><li><a href="#">Residenciais</a></li><li><a href="#">Comerciais</a></li><li><a href="#">Multiuso</a></li><li><a href="admin.html" class="admin-link">Administração</a></li></ul></div></div>
+                <div class="footer-newsletter-v2"><h4>Newsletter</h4><p>Receba novidades sobre lançamentos.</p><form class="newsletter-form-v2" method="post" action="#"><div class="newsletter-input-wrap"><label for="nl-email-proj" class="sr-only">Email</label><input type="email" id="nl-email-proj" placeholder="Seu melhor email" required><button type="submit" aria-label="Inscrever-se"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div></form></div>
+            </div>
+            <div class="footer-bottom-v2"><p>&copy; 2025 Luniel Incorporadora. Todos os direitos reservados.</p><div class="footer-legal-v2"><a href="#">Política de Privacidade</a><a href="#">Termos de Uso</a></div></div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float-v2"><a href="https://wa.me/551130001000" target="_blank" class="whatsapp-btn-v2" aria-label="WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a></div>
+
+    <script src="javascript/javascript.js"></script>
+    <script src="javascript/api-projetos.js"></script>
+</body>
+</html>

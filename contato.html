@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a Luniel Incorporadora. Nossa equipe está pronta para atender você e tirar todas as suas dúvidas.">
+    <meta name="keywords" content="contato, Luniel, incorporadora, atendimento, consultoria">
+    <meta name="author" content="Luniel Incorporadora">
+    <title>Contato | Luniel Incorporadora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="header" class="glass-header scrolled">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><a href="index.html"><span class="logo-text">LUNIEL</span><span class="logo-dot">.</span></a></div>
+                <nav id="main-nav" aria-label="Navegação principal"><ul><li><a href="index.html" class="nav-link">Home</a></li><li><a href="sobre.html" class="nav-link">Sobre</a></li><li><a href="projetos.html" class="nav-link">Projetos</a></li><li><a href="servicos.html" class="nav-link">Serviços</a></li></ul></nav>
+                <div class="header-actions">
+                    <a href="contato.html" class="contact-button"><span>Fale Conosco</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
+                    <button class="mobile-menu-btn" aria-label="Menu" id="mobileMenuBtn"><span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-overlay" id="mobileOverlay"><nav class="mobile-nav"><a href="index.html" class="mobile-nav-link">Home</a><a href="sobre.html" class="mobile-nav-link">Sobre</a><a href="projetos.html" class="mobile-nav-link">Projetos</a><a href="servicos.html" class="mobile-nav-link">Serviços</a><a href="contato.html" class="mobile-nav-link active cta">Contato</a></nav></div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero-cinematic" style="min-height: 45vh;">
+            <div class="hero-bg-layer">
+                <div class="hero-gradient-overlay"></div>
+                <div class="hero-noise-overlay"></div>
+                <div class="hero-parallax-img" style="background-image: url('imagens/f6.jpg')"></div>
+            </div>
+            <div class="container hero-container">
+                <div class="hero-content-cinematic" style="padding: 9rem 0 4rem; text-align: center; max-width: 700px; margin: 0 auto;">
+                    <div class="hero-badge-line" style="animation-delay: 0.3s; justify-content: center;"><span class="hero-line"></span><span class="hero-label">CONTATO</span><span class="hero-line"></span></div>
+                    <h1 class="hero-title" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem); text-align: center;">
+                        <span class="title-line" style="animation-delay: 0.5s; display: inline;">Entre em </span>
+                        <span class="title-line accent" style="animation-delay: 0.65s; display: inline;">Contato</span>
+                    </h1>
+                    <p class="hero-description" style="animation-delay: 0.9s; text-align: center; margin: 0 auto;">
+                        Nossa equipe está pronta para atender você e ajudar a realizar seus projetos imobiliários.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section style="padding: 5rem 0; background: var(--c-bg);">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: start; max-width: 1100px; margin: 0 auto;">
+
+                    <!-- Contact Form -->
+                    <div class="reveal-left">
+                        <div class="section-tag"><span class="tag-line"></span><span>FORMULÁRIO</span></div>
+                        <h2 class="section-heading" style="margin-bottom: 2rem;">Envie sua <span class="heading-accent">Mensagem</span></h2>
+
+                        <form id="contactForm" onsubmit="handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;">
+                                <div>
+                                    <label for="firstName" style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--c-text-secondary); margin-bottom: 0.4rem;">Nome *</label>
+                                    <input type="text" id="firstName" name="firstName" required placeholder="Seu nome" style="width: 100%; padding: 0.9rem 1rem; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; color: var(--c-text-primary); font-size: 0.9rem; transition: border-color 0.3s;">
+                                </div>
+                                <div>
+                                    <label for="lastName" style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--c-text-secondary); margin-bottom: 0.4rem;">Sobrenome *</label>
+                                    <input type="text" id="lastName" name="lastName" required placeholder="Seu sobrenome" style="width: 100%; padding: 0.9rem 1rem; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; color: var(--c-text-primary); font-size: 0.9rem; transition: border-color 0.3s;">
+                                </div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;">
+                                <div>
+                                    <label for="email" style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--c-text-secondary); margin-bottom: 0.4rem;">Email *</label>
+                                    <input type="email" id="email" name="email" required placeholder="seu@email.com" style="width: 100%; padding: 0.9rem 1rem; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; color: var(--c-text-primary); font-size: 0.9rem; transition: border-color 0.3s;">
+                                </div>
+                                <div>
+                                    <label for="phone" style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--c-text-secondary); margin-bottom: 0.4rem;">WhatsApp *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999" style="width: 100%; padding: 0.9rem 1rem; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; color: var(--c-text-primary); font-size: 0.9rem; transition: border-color 0.3s;">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="subject" style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--c-text-secondary); margin-bottom: 0.4rem;">Assunto *</label>
+                                <select id="subject" name="subject" required style="width: 100%; padding: 0.9rem 1rem; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; color: var(--c-text-primary); font-size: 0.9rem; cursor: pointer; appearance: none; background-image: url(&quot;data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a3b0a8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 1rem center;">
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="investimento">Investimento Imobiliário</option>
+                                    <option value="projetos">Conhecer Projetos</option>
+                                    <option value="financiamento">Financiamento</option>
+                                    <option value="consultoria">Consultoria</option>
+                                    <option value="parceria">Parceria Comercial</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="project" style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--c-text-secondary); margin-bottom: 0.4rem;">Projeto de Interesse</label>
+                                <select id="project" name="project" style="width: 100%; padding: 0.9rem 1rem; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; color: var(--c-text-primary); font-size: 0.9rem; cursor: pointer; appearance: none; background-image: url(&quot;data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a3b0a8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 1rem center;">
+                                    <option value="">Selecione (opcional)</option>
+                                    <option value="luniel-essence">Luniel Essence</option>
+                                    <option value="luniel-corporate">Luniel Corporate</option>
+                                    <option value="luniel-garden">Luniel Garden</option>
+                                    <option value="luniel-boulevard">Luniel Boulevard</option>
+                                    <option value="luniel-horizon">Luniel Horizon</option>
+                                    <option value="alto-vale">Residencial Alto Vale</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--c-text-secondary); margin-bottom: 0.4rem;">Mensagem *</label>
+                                <textarea id="message" name="message" required placeholder="Conte-nos mais sobre seus interesses..." rows="5" style="width: 100%; padding: 0.9rem 1rem; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; color: var(--c-text-primary); font-size: 0.9rem; resize: vertical; min-height: 120px; transition: border-color 0.3s; font-family: var(--font-body);"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-cta-gold" style="width: 100%; justify-content: center; padding: 1rem; font-size: 0.85rem; margin-top: 0.5rem; cursor: pointer;" id="contactSubmitBtn">
+                                <span>Enviar Mensagem</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </form>
+
+                        <div id="contactSuccess" style="display: none; padding: 2rem; background: rgba(76,175,80,0.1); border: 1px solid rgba(76,175,80,0.3); border-radius: 12px; text-align: center; margin-top: 1rem;">
+                            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✓</div>
+                            <h3 style="color: #81c784; font-size: 1.2rem; margin-bottom: 0.5rem;">Mensagem Enviada!</h3>
+                            <p style="color: var(--c-text-muted); font-size: 0.85rem; margin: 0;">Entraremos em contato em até 24 horas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="reveal-right">
+                        <div class="section-tag"><span class="tag-line"></span><span>INFORMAÇÕES</span></div>
+                        <h2 class="section-heading" style="margin-bottom: 2rem;">Canais de <span class="heading-accent">Atendimento</span></h2>
+
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div class="about-feature-card" style="padding: 1.5rem; display: flex; gap: 1rem; align-items: center;">
+                                <div class="feature-icon-wrap">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.1 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 style="font-family: var(--font-body); font-size: 0.9rem; margin-bottom: 0.2rem;">Telefone</h4>
+                                    <p style="margin: 0; font-size: 0.85rem; color: var(--c-text-muted);">(11) 3000-1000</p>
+                                </div>
+                            </div>
+
+                            <div class="about-feature-card" style="padding: 1.5rem; display: flex; gap: 1rem; align-items: center;">
+                                <div class="feature-icon-wrap">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <h4 style="font-family: var(--font-body); font-size: 0.9rem; margin-bottom: 0.2rem;">Email</h4>
+                                    <p style="margin: 0; font-size: 0.85rem; color: var(--c-text-muted);">contato@luniel.com.br</p>
+                                </div>
+                            </div>
+
+                            <div class="about-feature-card" style="padding: 1.5rem; display: flex; gap: 1rem; align-items: center;">
+                                <div class="feature-icon-wrap">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <h4 style="font-family: var(--font-body); font-size: 0.9rem; margin-bottom: 0.2rem;">Escritório</h4>
+                                    <p style="margin: 0; font-size: 0.85rem; color: var(--c-text-muted);">Av. Paulista, 1234 — 12° andar<br>São Paulo, SP — CEP 01310-100</p>
+                                </div>
+                            </div>
+
+                            <div class="about-feature-card" style="padding: 1.5rem; display: flex; gap: 1rem; align-items: center;">
+                                <div class="feature-icon-wrap">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </div>
+                                <div>
+                                    <h4 style="font-family: var(--font-body); font-size: 0.9rem; margin-bottom: 0.2rem;">Horário</h4>
+                                    <p style="margin: 0; font-size: 0.85rem; color: var(--c-text-muted);">Seg - Sex: 9h às 18h<br>Sáb: 9h às 13h</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social -->
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--c-border);">
+                            <h4 style="font-family: var(--font-body); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--c-text-primary); margin-bottom: 1rem;">Redes Sociais</h4>
+                            <div style="display: flex; gap: 0.8rem;">
+                                <a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                                <a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                                <a href="#" class="social-link" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2 29 29 0 00-.46 5.33 29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+                                <a href="https://wa.me/551130001000" class="social-link" aria-label="WhatsApp" style="border-color: #25d366; color: #25d366;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map -->
+        <section style="padding: 0; background: var(--c-bg-elevated); border-top: 1px solid var(--c-border);">
+            <div style="width: 100%; height: 400px; filter: grayscale(0.5) brightness(0.7); position: relative;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197570393957!2d-46.65661832390076!3d-23.564419261413133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa355%3A0xa4d93a3f3c0e0b12!2sAv.%20Paulista%20-%20Bela%20Vista!5e0!3m2!1spt-BR!2sbr!4v1709000000000" width="100%" height="100%" style="border: 0;" allowfullscreen="" loading="lazy" title="Localização Luniel"></iframe>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, var(--c-bg-elevated), transparent); pointer-events: none;"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-v2">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand"><div class="footer-logo">LUNIEL<span>.</span></div><p>Referência no mercado imobiliário brasileiro.</p><div class="footer-social"><a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg></a><a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div></div>
+                <div class="footer-links-group"><div class="footer-col"><h4>Navegação</h4><ul><li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="contato.html">Contato</a></li></ul></div><div class="footer-col"><h4>Empreendimentos</h4><ul><li><a href="#">Residenciais</a></li><li><a href="#">Comerciais</a></li><li><a href="admin.html" class="admin-link">Administração</a></li></ul></div></div>
+                <div class="footer-newsletter-v2"><h4>Newsletter</h4><p>Receba novidades sobre lançamentos.</p><form class="newsletter-form-v2"><div class="newsletter-input-wrap"><label for="nl-email-ctto" class="sr-only">Email</label><input type="email" id="nl-email-ctto" placeholder="Seu melhor email" required><button type="submit" aria-label="Inscrever-se"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div></form></div>
+            </div>
+            <div class="footer-bottom-v2"><p>&copy; 2025 Luniel Incorporadora.</p><div class="footer-legal-v2"><a href="#">Privacidade</a><a href="#">Termos</a></div></div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float-v2"><a href="https://wa.me/551130001000" target="_blank" class="whatsapp-btn-v2" aria-label="WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a></div>
+
+    <script src="javascript/javascript.js"></script>
+    <script>
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = document.getElementById('contactSubmitBtn');
+            const success = document.getElementById('contactSuccess');
+
+            btn.innerHTML = '<span>Enviando...</span>';
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                form.style.display = 'none';
+                success.style.display = 'block';
+                success.style.animation = 'fadeSlideUp 0.5s ease forwards';
+            }, 1500);
+        }
+
+        // Focus styles for inputs
+        document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea').forEach(el => {
+            el.addEventListener('focus', () => { el.style.borderColor = 'var(--c-accent)'; el.style.boxShadow = '0 0 0 3px rgba(212,169,94,0.1)'; });
+            el.addEventListener('blur', () => { el.style.borderColor = 'var(--c-border)'; el.style.boxShadow = 'none'; });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a Luniel Incorporadora. Há mais de 17 anos transformando o mercado imobiliário brasileiro.">
+    <title>Sobre a Luniel | História e Valores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ===== SOBRE — CREATIVE MOBILE-FIRST ===== */
+
+        /* --- Hero: Full-screen cinematic with stats overlay --- */
+        .sobre-hero-full {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 var(--sp-4) 3rem;
+            overflow: hidden;
+        }
+        .sobre-hero-full .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .sobre-hero-full .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .sobre-hero-full .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, 
+                var(--c-bg) 0%, 
+                rgba(10,15,13,0.8) 40%, 
+                rgba(10,15,13,0.4) 100%
+            );
+        }
+        .sobre-hero-full .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+        .sobre-hero-full h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 9vw, 5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+        .sobre-hero-full h1 .accent {
+            font-style: italic;
+            color: var(--c-accent);
+        }
+        .sobre-hero-full .hero-sub {
+            font-size: 1rem;
+            color: var(--c-text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .hero-stats-float {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .hero-stats-float .sf-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+        .sf-item .sf-num {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--c-accent);
+            line-height: 1;
+        }
+        .sf-item .sf-label {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--c-text-muted);
+        }
+
+        /* --- Manifesto: Big typography section --- */
+        .manifesto {
+            padding: 5rem var(--sp-4);
+            background: var(--c-bg);
+        }
+        .manifesto-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 4vw, 2.3rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--c-text-secondary);
+        }
+        .manifesto-text strong {
+            color: var(--c-text-primary);
+            font-weight: 600;
+        }
+        .manifesto-text em {
+            color: var(--c-accent);
+            font-style: italic;
+        }
+        .manifesto-author {
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--c-text-muted);
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .manifesto-author::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--c-accent);
+        }
+
+        /* --- Values: Centered titles --- */
+        .values-immersive {
+            position: relative;
+            padding: 4rem var(--sp-4);
+            background: var(--c-bg-elevated);
+        }
+        /* Gradient intro FROM bg TO bg-elevated */
+        .values-immersive::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--c-bg), var(--c-bg-elevated));
+            pointer-events: none;
+        }
+        .values-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .value-block {
+            position: relative;
+            text-align: center;
+        }
+        .value-block .vb-num {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(212,169,94,0.15);
+            line-height: 0.8;
+            margin-bottom: -0.5rem;
+            position: relative;
+            z-index: 0;
+        }
+        .value-block .vb-content {
+            position: relative;
+            z-index: 1;
+        }
+        .value-block h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--c-accent);
+            margin-bottom: 0.6rem;
+        }
+        .value-block p {
+            font-size: 0.9rem;
+            color: var(--c-text-secondary);
+            line-height: 1.9;
+            margin: 0;
+        }
+
+        /* --- Timeline: STEPPER CAROUSEL --- */
+        .timeline-impact {
+            padding: 4rem var(--sp-4) 5rem;
+            background: var(--c-bg);
+            overflow: hidden;
+            position: relative;
+        }
+        .timeline-impact::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--c-bg-elevated), var(--c-bg));
+            pointer-events: none;
+        }
+        .timeline-impact .tl-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 0;
+        }
+        .tl-header .tl-intro {
+            font-size: 0.95rem;
+            color: var(--c-text-secondary);
+            line-height: 1.7;
+            margin-top: 0.8rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Start button */
+        .tl-start-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 1px solid rgba(212,169,94,0.3);
+            border-radius: 60px;
+            color: var(--c-accent);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        .tl-start-btn:hover {
+            background: rgba(212,169,94,0.08);
+            border-color: var(--c-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212,169,94,0.1);
+        }
+        .tl-start-btn.hidden { display: none; }
+        /* Stepper container */
+        .tl-stepper {
+            display: none;
+            max-width: 600px;
+            margin: 2.5rem auto 0;
+        }
+        .tl-stepper.active { display: block; }
+        /* Slide viewport */
+        .tl-slide-area {
+            position: relative;
+            min-height: 220px;
+            overflow: hidden;
+        }
+        .tl-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+            pointer-events: none;
+        }
+        .tl-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+            position: relative;
+        }
+        .tl-slide.exit-left {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+        .tl-slide.enter-right {
+            transform: translateX(40px);
+        }
+        .tl-slide.exit-right {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        .tl-slide.enter-left {
+            transform: translateX(-40px);
+        }
+        /* Slide content */
+        .tl-slide .tl-year {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 900;
+            color: var(--c-accent);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .tl-slide .tl-accent-bar {
+            width: 50px;
+            height: 3px;
+            background: var(--c-accent);
+            border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+        .tl-slide h4 {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 4vw, 1.6rem);
+            font-weight: 700;
+            color: var(--c-text-primary);
+            margin-bottom: 0.6rem;
+        }
+        .tl-slide p {
+            font-size: 0.95rem;
+            color: var(--c-text-secondary);
+            line-height: 1.8;
+            margin: 0 0 1rem;
+        }
+        .tl-slide .tl-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--c-accent);
+            padding: 0.35rem 1rem;
+            border: 1px solid rgba(212,169,94,0.2);
+            border-radius: 20px;
+        }
+        /* Progress dots */
+        .tl-progress {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .tl-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(212,169,94,0.15);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        .tl-dot.active {
+            background: var(--c-accent);
+            width: 24px;
+            border-radius: 4px;
+            box-shadow: 0 0 12px rgba(212,169,94,0.3);
+        }
+        .tl-dot.visited {
+            background: rgba(212,169,94,0.4);
+        }
+        /* Nav buttons */
+        .tl-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+        .tl-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(212,169,94,0.2);
+            border-radius: 40px;
+            color: var(--c-text-secondary);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .tl-nav-btn:hover {
+            border-color: var(--c-accent);
+            color: var(--c-accent);
+            transform: translateY(-1px);
+        }
+        .tl-nav-btn.primary {
+            background: var(--c-accent);
+            border-color: var(--c-accent);
+            color: var(--c-bg);
+        }
+        .tl-nav-btn.primary:hover {
+            box-shadow: 0 6px 20px rgba(212,169,94,0.25);
+            transform: translateY(-2px);
+        }
+        .tl-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        .tl-nav-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* --- Team: PREMIUM glassmorphism cards --- */
+        .team-section-premium {
+            padding: 4rem var(--sp-4) 5rem;
+            background: var(--c-bg-elevated);
+            position: relative;
+        }
+        .team-section-premium::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--c-bg), var(--c-bg-elevated));
+            pointer-events: none;
+        }
+        .team-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .tm-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 1.8rem;
+            border-radius: var(--r-xl);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(212,169,94,0.08);
+            backdrop-filter: blur(8px);
+            transition: all 0.5s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Accent left border indicator */
+        .tm-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20%;
+            bottom: 20%;
+            width: 3px;
+            border-radius: 2px;
+            background: var(--c-accent);
+            opacity: 0;
+            transition: opacity 0.4s, top 0.4s, bottom 0.4s;
+        }
+        .tm-card:hover {
+            background: rgba(212,169,94,0.04);
+            border-color: rgba(212,169,94,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+        .tm-card:hover::before {
+            opacity: 1;
+            top: 15%;
+            bottom: 15%;
+        }
+        .tm-card .tm-avatar {
+            width: 72px;
+            height: 72px;
+            min-width: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(49,76,61,0.8), rgba(49,76,61,0.4));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--c-accent);
+            border: 2px solid rgba(212,169,94,0.2);
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+        }
+        .tm-card:hover .tm-avatar {
+            border-color: var(--c-accent);
+            box-shadow: 0 0 30px rgba(212,169,94,0.2);
+            transform: scale(1.05);
+        }
+        .tm-card .tm-details {
+            flex: 1;
+        }
+        .tm-card .tm-details h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: var(--c-text-primary);
+        }
+        .tm-card .tm-details .tm-role {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--c-accent);
+            display: block;
+            margin-bottom: 0.7rem;
+        }
+        .tm-card .tm-details .tm-bio {
+            font-size: 0.88rem;
+            color: var(--c-text-secondary);
+            line-height: 1.7;
+            margin: 0 0 0.8rem;
+        }
+        .tm-card .tm-details .tm-stat {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--c-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tm-stat .stat-accent {
+            color: var(--c-accent);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        @media (min-width: 768px) {
+            .sobre-hero-full { padding: 0 var(--sp-8) 4rem; }
+            .manifesto { padding: 7rem var(--sp-8); }
+            .values-immersive { padding: 6rem var(--sp-8); }
+            .values-grid {
+                flex-direction: row;
+                gap: 4rem;
+                max-width: 1100px;
+            }
+            .value-block { flex: 1; }
+            .timeline-impact { padding: 6rem var(--sp-8); }
+            .team-section-premium { padding: 6rem var(--sp-8); }
+            .hero-stats-float { gap: 3rem; }
+            .sf-item .sf-num { font-size: 2.5rem; }
+            .tm-card .tm-avatar { width: 80px; height: 80px; min-width: 80px; font-size: 1.4rem; }
+            .tm-card { padding: 2rem 2.5rem; }
+            .tl-slide-area { min-height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="glass-header scrolled">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><a href="index.html"><span class="logo-text">LUNIEL</span><span class="logo-dot">.</span></a></div>
+                <nav id="main-nav"><ul><li><a href="index.html" class="nav-link">Home</a></li><li><a href="sobre.html" class="nav-link active">Sobre</a></li><li><a href="projetos.html" class="nav-link">Projetos</a></li><li><a href="servicos.html" class="nav-link">Serviços</a></li></ul></nav>
+                <div class="header-actions">
+                    <a href="contato.html" class="contact-button"><span>Fale Conosco</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-overlay" id="mobileOverlay"><nav class="mobile-nav"><a href="index.html" class="mobile-nav-link">Home</a><a href="sobre.html" class="mobile-nav-link active">Sobre</a><a href="projetos.html" class="mobile-nav-link">Projetos</a><a href="servicos.html" class="mobile-nav-link">Serviços</a><a href="contato.html" class="mobile-nav-link cta">Fale Conosco</a></nav></div>
+
+    <main>
+        <!-- Hero: Full-screen with stats integrated -->
+        <section class="sobre-hero-full">
+            <div class="hero-bg">
+                <img src="imagens/Captura de tela 2025-04-30 174126.png" alt="Luniel">
+            </div>
+            <div class="hero-inner">
+                <h1>
+                    Construímos<br>
+                    <span class="accent">Legados.</span>
+                </h1>
+                <p class="hero-sub">Há mais de 17 anos transformando o mercado imobiliário com design visionário e excelência construtiva.</p>
+                <div class="hero-stats-float">
+                    <div class="sf-item"><span class="sf-num" data-count="52">0</span><span class="sf-label">projetos</span></div>
+                    <div class="sf-item"><span class="sf-num" data-count="3200">0</span><span class="sf-label">famílias</span></div>
+                    <div class="sf-item"><span class="sf-num" data-count="6">0</span><span class="sf-label">estados</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto: Editorial typography -->
+        <section class="manifesto reveal-up">
+            <p class="manifesto-text">
+                <strong>Nascemos com um propósito claro</strong> — construir não apenas edifícios, mas <em>transformar a maneira como as pessoas vivem</em>. Cada projeto carrega a nossa obsessão por detalhes e o respeito absoluto pelo entorno.
+            </p>
+            <p class="manifesto-author">João Silva, Fundador & CEO</p>
+        </section>
+
+
+
+        <!-- Values: Giant outline numbers behind text -->
+        <section class="values-immersive">
+            <div style="max-width: 700px; margin: 0 auto 3rem;">
+                <div class="section-tag"><span class="tag-line"></span><span>FILOSOFIA</span></div>
+                <h2 class="section-heading">O que nos <span class="heading-accent">move</span></h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-block reveal-up">
+                    <div class="vb-num">01</div>
+                    <div class="vb-content">
+                        <h3>Missão</h3>
+                        <p>Projetos que unem excelência arquitetônica, sustentabilidade e valorização patrimonial — proporcionando experiências únicas de viver.</p>
+                    </div>
+                </div>
+                <div class="value-block reveal-up">
+                    <div class="vb-num">02</div>
+                    <div class="vb-content">
+                        <h3>Visão</h3>
+                        <p>Ser a incorporadora mais inovadora do Brasil. Referência absoluta em qualidade, design e satisfação de cada cliente atendido.</p>
+                    </div>
+                </div>
+                <div class="value-block reveal-up">
+                    <div class="vb-num">03</div>
+                    <div class="vb-content">
+                        <h3>Valores</h3>
+                        <p>Excelência sem compromisso. Inovação constante. Sustentabilidade real. Transparência total. Compromisso inabalável.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline: STEPPER CAROUSEL -->
+        <section class="timeline-impact" id="timelineSection">
+            <div class="tl-header">
+                <div class="section-tag" style="justify-content:center;"><span class="tag-line"></span><span>TRAJETÓRIA</span><span class="tag-line"></span></div>
+                <h2 class="section-heading" style="text-align:center;">17 anos construindo <span class="heading-accent">história</span></h2>
+                <p class="tl-intro">Uma jornada de excelência, inovação e compromisso que moldou o mercado imobiliário brasileiro.</p>
+                <button class="tl-start-btn" id="tlStart">
+                    <span>Ver Nossa História</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+            </div>
+            <div class="tl-stepper" id="tlStepper">
+                <div class="tl-slide-area">
+                    <div class="tl-slide active" data-index="0">
+                        <div class="tl-year">2008</div>
+                        <div class="tl-accent-bar"></div>
+                        <h4>Fundação da Luniel</h4>
+                        <p>Tudo começou com um propósito: criar espaços que transformam vidas. Os primeiros residenciais de alto padrão nascem em São Paulo e definem o DNA da marca.</p>
+                        <span class="tl-badge">São Paulo — SP</span>
+                    </div>
+                    <div class="tl-slide" data-index="1">
+                        <div class="tl-year">2012</div>
+                        <div class="tl-accent-bar"></div>
+                        <h4>Expansão Nacional</h4>
+                        <p>A qualidade Luniel ultrapassa fronteiras estaduais. Novos escritórios no Rio de Janeiro e Curitiba consolidam a presença nacional da marca.</p>
+                        <span class="tl-badge">3 Capitais Brasileiras</span>
+                    </div>
+                    <div class="tl-slide" data-index="2">
+                        <div class="tl-year">2015</div>
+                        <div class="tl-accent-bar"></div>
+                        <h4>Marco em Sustentabilidade</h4>
+                        <p>Primeiro projeto com certificação LEED Gold. A Luniel assume a liderança em construção verde, integrando sustentabilidade ao DNA de cada obra.</p>
+                        <span class="tl-badge">Certificação LEED Gold</span>
+                    </div>
+                    <div class="tl-slide" data-index="3">
+                        <div class="tl-year">2018</div>
+                        <div class="tl-accent-bar"></div>
+                        <h4>Diversificação do Portfólio</h4>
+                        <p>Lançamento do primeiro projeto comercial de alto padrão, provando que a excelência Luniel transcende o segmento residencial.</p>
+                        <span class="tl-badge">Comercial + Residencial</span>
+                    </div>
+                    <div class="tl-slide" data-index="4">
+                        <div class="tl-year">2021</div>
+                        <div class="tl-accent-bar"></div>
+                        <h4>Revolução Tecnológica</h4>
+                        <p>Automação residencial, eficiência energética e inteligência de dados passam a integrar cada novo empreendimento como padrão.</p>
+                        <span class="tl-badge">Smart Building</span>
+                    </div>
+                    <div class="tl-slide" data-index="5">
+                        <div class="tl-year">2025</div>
+                        <div class="tl-accent-bar"></div>
+                        <h4>Liderança Consolidada</h4>
+                        <p>52 projetos entregues, 3.200 famílias atendidas, presença em 6 estados. Uma das principais incorporadoras do Brasil.</p>
+                        <span class="tl-badge">Top Incorporadoras BR</span>
+                    </div>
+                </div>
+                <div class="tl-progress" id="tlDots"></div>
+                <div class="tl-nav">
+                    <button class="tl-nav-btn" id="tlPrev" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                        Anterior
+                    </button>
+                    <button class="tl-nav-btn primary" id="tlNext">
+                        Próximo
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team: PREMIUM cards -->
+        <section class="team-section-premium">
+            <div style="max-width: 800px; margin: 0 auto 2.5rem;">
+                <div class="section-tag"><span class="tag-line"></span><span>LIDERANÇA</span></div>
+                <h2 class="section-heading">Quem faz a <span class="heading-accent">Luniel</span></h2>
+                <p style="font-size: 0.95rem; color: var(--c-text-secondary); margin-top: 0.8rem; max-width: 500px;">A visão e a dedicação por trás de cada projeto que entregamos.</p>
+            </div>
+            <div class="team-grid">
+                <div class="tm-card reveal-up">
+                    <div class="tm-avatar">JS</div>
+                    <div class="tm-details">
+                        <h4>João Silva</h4>
+                        <span class="tm-role">CEO & Fundador</span>
+                        <p class="tm-bio">Visionário com mais de duas décadas no mercado imobiliário. Fundou a Luniel com a missão de redefinir o padrão de qualidade e inovação no Brasil.</p>
+                        <span class="tm-stat"><span class="stat-accent">20+</span> anos de experiência</span>
+                    </div>
+                </div>
+                <div class="tm-card reveal-up">
+                    <div class="tm-avatar">MS</div>
+                    <div class="tm-details">
+                        <h4>Maria Santos</h4>
+                        <span class="tm-role">Diretora de Projetos</span>
+                        <p class="tm-bio">Arquiteta premiada e especialista em sustentabilidade. Responsável pela assinatura visual e pelo padrão de excelência que define cada empreendimento Luniel.</p>
+                        <span class="tm-stat"><span class="stat-accent">34</span> projetos assinados</span>
+                    </div>
+                </div>
+                <div class="tm-card reveal-up">
+                    <div class="tm-avatar">CO</div>
+                    <div class="tm-details">
+                        <h4>Carlos Oliveira</h4>
+                        <span class="tm-role">Diretor Comercial</span>
+                        <p class="tm-bio">Estrategista comercial com foco na experiência do investidor. Responsável por construir relacionamentos duradouros e resultados consistentes.</p>
+                        <span class="tm-stat"><span class="stat-accent">R$500M+</span> em negociações</span>
+                    </div>
+                </div>
+                <div class="tm-card reveal-up">
+                    <div class="tm-avatar">AR</div>
+                    <div class="tm-details">
+                        <h4>Ana Rodrigues</h4>
+                        <span class="tm-role">Diretora Financeira</span>
+                        <p class="tm-bio">Mente analítica que garante solidez em cada operação. Referência em gestão financeira imobiliária, assegurando viabilidade e segurança para investidores.</p>
+                        <span class="tm-stat"><span class="stat-accent">100%</span> projetos viáveis</span>
+                    </div>
+                </div>
+                <div class="tm-card reveal-up">
+                    <div class="tm-avatar">LM</div>
+                    <div class="tm-details">
+                        <h4>Lucas Mendes</h4>
+                        <span class="tm-role">Head de Engenharia</span>
+                        <p class="tm-bio">Engenheiro civil com obsessão por qualidade e prazos. Lidera toda a execução técnica garantindo que cada entrega supere as expectativas do cliente.</p>
+                        <span class="tm-stat"><span class="stat-accent">52</span> entregas no prazo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section-v2">
+            <div class="cta-bg-elements"><div class="cta-glow-1"></div><div class="cta-glow-2"></div></div>
+            <div class="container">
+                <div class="cta-content-v2">
+                    <h2>Conheça nossos <span class="heading-accent">projetos</span></h2>
+                    <p>Descubra como transformar seu investimento em realidade.</p>
+                    <div class="cta-btn-group">
+                        <a href="projetos.html" class="btn-cta-gold"><span>Ver Projetos</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
+                        <a href="contato.html" class="btn-cta-outline-light">Falar Conosco</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-v2">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand"><div class="footer-logo">LUNIEL<span>.</span></div><p>Referência no mercado imobiliário brasileiro.</p><div class="footer-social"><a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg></a><a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div></div>
+                <div class="footer-links-group"><div class="footer-col"><h4>Navegação</h4><ul><li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="contato.html">Contato</a></li></ul></div><div class="footer-col"><h4>Empreendimentos</h4><ul><li><a href="#">Residenciais</a></li><li><a href="#">Comerciais</a></li><li><a href="admin.html" class="admin-link">Administração</a></li></ul></div></div>
+                <div class="footer-newsletter-v2"><h4>Newsletter</h4><p>Receba novidades.</p><form class="newsletter-form-v2"><div class="newsletter-input-wrap"><label for="nl-email-sobre" class="sr-only">Email</label><input type="email" id="nl-email-sobre" placeholder="Seu melhor email" required><button type="submit" aria-label="Inscrever-se"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div></form></div>
+            </div>
+            <div class="footer-bottom-v2"><p>&copy; 2025 Luniel Incorporadora.</p><div class="footer-legal-v2"><a href="#">Privacidade</a><a href="#">Termos</a></div></div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float-v2"><a href="https://wa.me/551130001000" target="_blank" class="whatsapp-btn-v2" aria-label="WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a></div>
+
+    <script src="javascript/javascript.js"></script>
+    <script>
+        document.querySelectorAll('.sf-num').forEach(el => {
+            if (!el.dataset.count) return;
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) {
+                    const t = parseInt(el.dataset.count), s = performance.now();
+                    (function u(n) {
+                        const p = Math.min((n-s)/2000,1), v = Math.floor(t*(1-Math.pow(1-p,4)));
+                        el.textContent = t>=100 ? v.toLocaleString('pt-BR')+'+' : v;
+                        if(p<1) requestAnimationFrame(u);
+                    })(performance.now());
+                    obs.unobserve(el);
+                }});
+            }, {threshold:0.5});
+            obs.observe(el);
+        });
+
+        // Timeline Stepper
+        (() => {
+            const startBtn = document.getElementById('tlStart');
+            const stepper = document.getElementById('tlStepper');
+            const slides = document.querySelectorAll('.tl-slide');
+            const prevBtn = document.getElementById('tlPrev');
+            const nextBtn = document.getElementById('tlNext');
+            const dotsWrap = document.getElementById('tlDots');
+            if (!startBtn || !stepper || !slides.length) return;
+
+            let current = 0;
+            const total = slides.length;
+
+            // Create dots
+            for (let i = 0; i < total; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'tl-dot' + (i === 0 ? ' active' : '');
+                dot.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(dot);
+            }
+
+            function updateDots() {
+                dotsWrap.querySelectorAll('.tl-dot').forEach((d, i) => {
+                    d.className = 'tl-dot';
+                    if (i === current) d.classList.add('active');
+                    else if (i < current) d.classList.add('visited');
+                });
+            }
+
+            function goTo(target) {
+                if (target === current || target < 0 || target >= total) return;
+                const dir = target > current ? 'left' : 'right';
+                const old = slides[current];
+                const next = slides[target];
+
+                // Exit current
+                old.classList.remove('active');
+                old.classList.add(dir === 'left' ? 'exit-left' : 'exit-right');
+
+                // Prepare next
+                next.classList.add(dir === 'left' ? 'enter-right' : 'enter-left');
+                next.style.position = 'relative';
+
+                // Trigger reflow
+                void next.offsetWidth;
+
+                // Animate in
+                next.classList.remove('enter-right', 'enter-left');
+                next.classList.add('active');
+
+                // Clean up old after transition
+                setTimeout(() => {
+                    old.classList.remove('exit-left', 'exit-right');
+                    old.style.position = '';
+                }, 500);
+
+                current = target;
+                updateDots();
+                prevBtn.disabled = current === 0;
+                nextBtn.querySelector('span') && (nextBtn.querySelector('span').textContent = current === total - 1 ? 'Fechar' : 'Pr\u00f3ximo');
+                // Update next button text
+                const nextTxt = nextBtn.childNodes;
+                for (let n of nextTxt) {
+                    if (n.nodeType === 3) {
+                        n.textContent = current === total - 1 ? 'Fechar ' : 'Pr\u00f3ximo ';
+                        break;
+                    }
+                }
+            }
+
+            startBtn.addEventListener('click', () => {
+                startBtn.classList.add('hidden');
+                stepper.classList.add('active');
+            });
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => {
+                if (current === total - 1) {
+                    // Close stepper
+                    stepper.classList.remove('active');
+                    startBtn.classList.remove('hidden');
+                    // Reset to first
+                    slides.forEach(s => { s.classList.remove('active', 'exit-left', 'exit-right'); s.style.position = ''; });
+                    slides[0].classList.add('active');
+                    current = 0;
+                    updateDots();
+                    prevBtn.disabled = true;
+                    for (let n of nextBtn.childNodes) { if (n.nodeType === 3) { n.textContent = 'Pr\u00f3ximo '; break; } }
+                } else {
+                    goTo(current + 1);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luniel Incorporadora — Empreendimentos de alto padrão com design inovador, sustentabilidade e excelência construtiva que redefinem o futuro urbano.">
+    <meta name="keywords" content="incorporadora, imóveis, empreendimentos, alto padrão, sustentabilidade, Luniel, luxo, design">
+    <meta name="author" content="Luniel Incorporadora">
+    <title>Luniel Incorporadora | Redefinindo o Futuro Urbano</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">LUNIEL<span>.</span></div>
+            <div class="preloader-bar">
+                <div class="preloader-progress" id="preloaderProgress"></div>
+            </div>
+            <div class="preloader-text">Carregando experiência...</div>
+        </div>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+
+    <!-- Header -->
+    <header id="header" class="glass-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">LUNIEL</span><span class="logo-dot">.</span>
+                    </a>
+                </div>
+
+                <nav id="main-nav" aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="index.html" class="nav-link active" data-text="Home">Home</a></li>
+                        <li><a href="sobre.html" class="nav-link" data-text="Sobre">Sobre</a></li>
+                        <li><a href="projetos.html" class="nav-link" data-text="Projetos">Projetos</a></li>
+                        <li><a href="servicos.html" class="nav-link" data-text="Serviços">Serviços</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="contato.html" class="contact-button magnetic-btn" id="ctaHeaderBtn">
+                        <span>Fale Conosco</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                        </svg>
+                    </a>
+                    <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav" id="mobileMenuBtn">
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active">Home</a>
+            <a href="sobre.html" class="mobile-nav-link">Sobre</a>
+            <a href="projetos.html" class="mobile-nav-link">Projetos</a>
+            <a href="servicos.html" class="mobile-nav-link">Serviços</a>
+            <a href="contato.html" class="mobile-nav-link cta">Fale Conosco</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-cinematic" id="home">
+            <div class="hero-bg-layer">
+                <div class="hero-gradient-overlay"></div>
+                <div class="hero-noise-overlay"></div>
+                <div class="hero-parallax-img" style="background-image: url('imagens/f1.avif')"></div>
+            </div>
+
+            <div class="hero-morphing-blob">
+                <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(300,300)">
+                        <path d="" fill="rgba(212,169,94,0.08)" id="morphBlob1"/>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="container hero-container">
+                <div class="hero-content-cinematic">
+                    <div class="hero-badge-line">
+                        <span class="hero-line"></span>
+                        <span class="hero-label">INCORPORADORA DE ALTO PADRÃO</span>
+                        <span class="hero-line"></span>
+                    </div>
+
+                    <h1 class="hero-title" data-splitting>
+                        <span class="title-line">Redefinindo</span>
+                        <span class="title-line accent">o Futuro</span>
+                        <span class="title-line">Urbano</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Empreendimentos que transcendem o ordinário — onde arquitetura visionária encontra sustentabilidade e cada detalhe é uma declaração de excelência.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="projetos.html" class="btn-hero-primary magnetic-btn" id="heroBtn1">
+                            <span class="btn-text">Explorar Projetos</span>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="#about" class="btn-hero-outline">
+                            <span>Descubra a Luniel</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-stats-row">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="17">0</span>
+                            <span class="hero-stat-label">Anos de Experiência</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="52">0</span>
+                            <span class="hero-stat-label">Projetos Entregues</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="3200">0</span>
+                            <span class="hero-stat-label">Famílias Atendidas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section-v2" id="about">
+            <div class="container">
+                <div class="about-layout">
+                    <div class="about-visual reveal-left">
+                        <div class="about-image-stack">
+                            <div class="about-img-main">
+                                <img src="imagens/Captura de tela 2025-04-30 174126.png" alt="Sobre a Luniel Incorporadora" loading="lazy">
+                                <div class="about-img-overlay"></div>
+                            </div>
+                            <div class="about-experience-badge">
+                                <span class="exp-number">17+</span>
+                                <span class="exp-text">Anos de<br>Excelência</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-info reveal-right">
+                        <div class="section-tag">
+                            <span class="tag-line"></span>
+                            <span>SOBRE NÓS</span>
+                        </div>
+
+                        <h2 class="section-heading">
+                            Construindo <span class="heading-accent">Legados</span> que Transcendem Gerações
+                        </h2>
+
+                        <p class="about-description">
+                            Desde 2008, a Luniel entrega empreendimentos de alto padrão com um compromisso inabalável com design inovador, sustentabilidade e localização privilegiada. Cada projeto é uma obra-prima pensada para elevar o padrão de vida.
+                        </p>
+
+                        <div class="about-features-grid">
+                            <div class="about-feature-card">
+                                <div class="feature-icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                    </svg>
+                                </div>
+                                <h4>Qualidade Premium</h4>
+                                <p>Materiais nobres e acabamentos de excelência em cada detalhe</p>
+                            </div>
+                            <div class="about-feature-card">
+                                <div class="feature-icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                </div>
+                                <h4>Entrega Pontual</h4>
+                                <p>Compromisso com prazos e cronogramas rigorosos</p>
+                            </div>
+                            <div class="about-feature-card">
+                                <div class="feature-icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                        <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                                        <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                                        <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                    </svg>
+                                </div>
+                                <h4>Sustentabilidade</h4>
+                                <p>Projetos que respeitam e integram o meio ambiente</p>
+                            </div>
+                            <div class="about-feature-card">
+                                <div class="feature-icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <h4>Localizações Premium</h4>
+                                <p>Endereços estratégicos nas melhores regiões do país</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase -->
+        <section class="projects-showcase" id="projects">
+            <div class="container">
+                <div class="section-header-v2">
+                    <div class="section-tag center">
+                        <span class="tag-line"></span>
+                        <span>PORTFÓLIO</span>
+                        <span class="tag-line"></span>
+                    </div>
+                    <h2 class="section-heading center">
+                        Projetos em <span class="heading-accent">Destaque</span>
+                    </h2>
+                    <p class="section-subheading">Empreendimentos que redefinem conceitos e criam novos padrões no mercado imobiliário</p>
+                </div>
+
+                <div class="projects-carousel">
+                    <article class="project-card-v2 tilt-card" data-tilt>
+                        <div class="project-card-visual">
+                            <img src="imagens/f1.avif" alt="Luniel Essence" loading="lazy">
+                            <div class="project-card-overlay">
+                                <span class="project-status-badge construction">Em Construção</span>
+                            </div>
+                        </div>
+                        <div class="project-card-info">
+                            <h3>Luniel Essence</h3>
+                            <p>Residencial de alto padrão com design contemporâneo e acabamentos exclusivos.</p>
+                            <div class="project-card-meta">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> São Paulo, SP</span>
+                                <a href="projetos.html#luniel-essence" class="project-card-link">
+                                    Ver Detalhes
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card-v2 tilt-card" data-tilt>
+                        <div class="project-card-visual">
+                            <img src="imagens/f2.avif" alt="Luniel Corporate" loading="lazy">
+                            <div class="project-card-overlay">
+                                <span class="project-status-badge launch">Lançamento</span>
+                            </div>
+                        </div>
+                        <div class="project-card-info">
+                            <h3>Luniel Corporate</h3>
+                            <p>Centro empresarial premium com certificação LEED e tecnologia de ponta.</p>
+                            <div class="project-card-meta">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Rio de Janeiro, RJ</span>
+                                <a href="projetos.html#luniel-corporate" class="project-card-link">
+                                    Ver Detalhes
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card-v2 tilt-card" data-tilt>
+                        <div class="project-card-visual">
+                            <img src="imagens/f3.png" alt="Luniel Garden" loading="lazy">
+                            <div class="project-card-overlay">
+                                <span class="project-status-badge ready">Pronto para Morar</span>
+                            </div>
+                        </div>
+                        <div class="project-card-info">
+                            <h3>Luniel Garden</h3>
+                            <p>Residencial com conceito verde, fachadas jardim e contato com a natureza.</p>
+                            <div class="project-card-meta">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Curitiba, PR</span>
+                                <a href="projetos.html#luniel-garden" class="project-card-link">
+                                    Ver Detalhes
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="projects-cta-wrap">
+                    <a href="projetos.html" class="btn-hero-primary magnetic-btn">
+                        <span class="btn-text">Ver Todos os Projetos</span>
+                        <span class="btn-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Section -->
+        <section class="marquee-section">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>LUXO</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>INOVAÇÃO</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>SUSTENTABILIDADE</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>DESIGN</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>EXCELÊNCIA</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>LUXO</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>INOVAÇÃO</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>SUSTENTABILIDADE</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>DESIGN</span>
+                    <span class="marquee-dot">◆</span>
+                    <span>EXCELÊNCIA</span>
+                    <span class="marquee-dot">◆</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section-v2">
+            <div class="cta-bg-elements">
+                <div class="cta-glow-1"></div>
+                <div class="cta-glow-2"></div>
+            </div>
+            <div class="container">
+                <div class="cta-content-v2">
+                    <div class="section-tag center">
+                        <span class="tag-line light"></span>
+                        <span class="light">OPORTUNIDADE</span>
+                        <span class="tag-line light"></span>
+                    </div>
+                    <h2>Pronto para investir no seu <span class="heading-accent">futuro</span>?</h2>
+                    <p>Descubra as oportunidades Luniel e transforme seu investimento em patrimônio de alto valor.</p>
+                    <div class="cta-btn-group">
+                        <a href="projetos.html" class="btn-cta-gold magnetic-btn">
+                            <span>Ver Projetos</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                            </svg>
+                        </a>
+                        <a href="contato.html" class="btn-cta-outline-light">Falar com Consultor</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer-v2">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">LUNIEL<span>.</span></div>
+                    <p>Referência no mercado imobiliário, com empreendimentos que combinam sofisticação, inovação e responsabilidade socioambiental.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Navegação</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="projetos.html">Projetos</a></li>
+                            <li><a href="servicos.html">Serviços</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Empreendimentos</h4>
+                        <ul>
+                            <li><a href="#">Residenciais</a></li>
+                            <li><a href="#">Comerciais</a></li>
+                            <li><a href="#">Multiuso</a></li>
+                            <li><a href="#">Lançamentos</a></li>
+                            <li><a href="admin.html" class="admin-link">Administração</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-newsletter-v2">
+                    <h4>Newsletter</h4>
+                    <p>Receba novidades sobre lançamentos e oportunidades exclusivas.</p>
+                    <form class="newsletter-form-v2" method="post" action="#">
+                        <div class="newsletter-input-wrap">
+                            <label for="newsletter-email-v2" class="sr-only">Email para newsletter</label>
+                            <input type="email" id="newsletter-email-v2" placeholder="Seu melhor email" required>
+                            <button type="submit" aria-label="Inscrever-se">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                    <polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom-v2">
+                <p>&copy; 2025 Luniel Incorporadora. Todos os direitos reservados.</p>
+                <div class="footer-legal-v2">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float-v2" id="whatsappFloat">
+        <a href="https://wa.me/551130001000?text=Olá! Gostaria de saber mais sobre os empreendimentos Luniel." target="_blank" class="whatsapp-btn-v2" aria-label="Fale conosco no WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+        </a>
+    </div>
+
+    <script src="javascript/javascript.js"></script>
+</body>
+</html>
