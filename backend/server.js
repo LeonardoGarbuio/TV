@@ -39,10 +39,12 @@ const SECRET_TOKEN = process.env.JWT_SECRET || 'fallback-dev-token-inseguro';
 const whitelist = process.env.ALLOWED_ORIGIN ? process.env.ALLOWED_ORIGIN.split(',') : []; 
 app.use(cors({
   origin: function (origin, callback) {
+    // Permite: local (dev), domínios na whitelist, ou qualquer subdomínio .github.io
     if (!origin || whitelist.includes(origin) || origin.endsWith('.github.io')) {
       callback(null, true);
     } else {
-      callback(new Error('Bloqueado nativamente pelas Regras do CORS'));
+      console.warn(`[BLOQUEIO CORS]: Tentativa de acesso vinda de origin não autorizada: ${origin}`);
+      callback(null, false); // Retorna falso em vez de erro para o middleware tratar elegantemente
     }
   },
   credentials: true
@@ -57,13 +59,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// Drop-Zone Regex contra injeções Non-SQL (NoSQLi) / Simbolos perigosos ($ ou {) no Body / Query antes do próprio CRUD
+// Drop-Zone Regex contra injeções Non-SQL (NoSQLi) / Simbolos perigosos no Body ou Query
 app.use((req, res, next) => {
-  const checkPayload = JSON.stringify({ ...req.body, ...req.query });
-  // Detecta tentativas de escapar escopos de banco ou scripts de terminal
-  if (/(\$|{.*}|<script>|eval\(|exec\()/.test(checkPayload)) {
-     logForense(req, 'MALVARE_REGEX_DROP', 'Payload contendo símbolos sensíveis letais. Conexão terminada na nuvem.');
-     return res.status(403).end(); // Silenced drop
+  const queryStr = JSON.stringify(req.query);
+  const bodyStr = JSON.stringify(req.body);
+  const checkPayload = queryStr + bodyStr;
+
+  // Detecta tentativas de injeção NoSQL ($where, etc) ou scripts de terminal
+  // Permitimos {} vazios, mas bloqueamos $, <script>, eval, exec
+  if (/(\$|<script>|eval\(|exec\()/.test(checkPayload)) {
+     console.warn(`[BLOQUEIO DE SEGURANÇA]: Tentativa de ataque detectada de ${req.ip}`);
+     return res.status(403).send('Conexão terminada por motivos de segurança (Bunker Protocol).');
   }
   next();
 });
