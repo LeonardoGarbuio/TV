@@ -318,12 +318,15 @@ app.post('/api/projetos', checkAdminAuth, upload.single('imagemFile'), async (re
 
   let imagem = '';
   
-  // Segurança Upload + Redimensionamento + Vercel Blob
+  // Segurança Upload + Vercel Blob
   if (req.file) {
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      return res.status(400).json({ error: 'Configuração Incompleta: BLOB_READ_WRITE_TOKEN não encontrado na Vercel. Conecte o Storage e faça Redeploy.' });
+    }
+    
     try {
       const filename = `projetos/${Date.now()}_${Math.round(Math.random() * 1E9)}.webp`;
       
-      // Upload direto para Vercel Blob (Sem Sharp para garantir o boot)
       const blob = await put(filename, req.file.buffer, {
         access: 'public',
         contentType: req.file.mimetype
@@ -332,7 +335,7 @@ app.post('/api/projetos', checkAdminAuth, upload.single('imagemFile'), async (re
       imagem = blob.url;
     } catch (err) {
       console.error('Erro de Upload Blob:', err);
-      return res.status(400).json({ error: 'Falha no processamento da imagem.' });
+      return res.status(400).json({ error: 'Erro na Nuvem Blob: ' + err.message });
     }
   }
 
