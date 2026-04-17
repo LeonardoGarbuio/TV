@@ -1,12 +1,11 @@
 import express from 'express';
-import pkg from 'pg';
-const { Pool } = pkg;
+import { Pool } from '@neondatabase/serverless';
 import { put } from '@vercel/blob';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import multer from 'multer';
 import fs from 'fs';
 import jwt from 'jsonwebtoken';
@@ -49,16 +48,9 @@ app.use(cors({
   credentials: true
 }));
 
-// Configuração do Vercel Postgres (Obrigatório: Conectar Storage no Dashboard da Vercel)
-if (!process.env.POSTGRES_URL) {
-  console.error('❌ ERRO CRÍTICO: POSTGRES_URL não encontrada! Certifique-se de conectar o Postgres Storage ao projeto na Vercel.');
-}
-
+// Configuração do Vercel Postgres (Otimizado para Neon Serverless)
 const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL,
-  ssl: {
-    rejectUnauthorized: false // Exigido pela infraestrutura da Vercel
-  }
+  connectionString: process.env.POSTGRES_URL || process.env.DATABASE_URL
 });
 
 app.use(cookieParser());
